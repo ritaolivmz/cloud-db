@@ -1,5 +1,6 @@
 package aws;
 
+import aws.cloudwatch.CloudWatchManager;
 import aws.db.ConnectionManager;
 import aws.db.DBConnectionProperties;
 
@@ -22,5 +23,9 @@ public class Main {
         //insert new person record into MariaDB
         connectionManager.insertNewPerson();
         connectionManager.closeConnection();
+
+        //cloudwatch
+        CloudWatchManager cloudWatchManager = new CloudWatchManager();
+        cloudWatchManager.changeChronExpression();
     }
 }
